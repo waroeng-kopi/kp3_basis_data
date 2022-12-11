@@ -1,3 +1,5 @@
+-- Initializing
+
 CREATE DATABASE PERPUSTAKAAN;
 
 CREATE TABLE Anggota (
@@ -63,3 +65,78 @@ CREATE TABLE Rak (
     PRIMARY KEY (id_rak),
     FOREIGN KEY (fk_id_buku) REFERENCES Buku(id_buku)
 );
+
+-- Inserting value
+
+INSERT INTO Anggota (
+    id_anggota, 
+    kode_anggota, 
+    nama_anggota, 
+    jurusan_anggota, 
+    no_telp_anggota, 
+    alamat_anggota) 
+value 
+(
+    1, 
+    'P101', 
+    'Handoko', 
+    'Ternak', 
+    0854246466646, 
+    'Ketintang timur'
+),
+(
+    2, 
+    'P102', 
+    'Andika', 
+    'Teknologi', 
+    085452154664, 
+    'Pacar Keling'
+),
+(
+    3, 
+    'P103', 
+    'Satriyo', 
+    'Teknologi', 
+    0815745499764, 
+    'Kippas Anggur'
+),
+(
+    4, 
+    'P104', 
+    'Ameliya Sari', 
+    'Ternak', 
+    081875454164, 
+    'Darmo Kali selatan'
+),
+(
+    5, 
+    'P105', 
+    'Permatasari Jenaka', 
+    'Teknologi', 
+    0815415956, 
+    'Kuburan Rangkah'
+);
+
+INSERT INTO Buku (
+    id_buku, 
+    kode_buku, 
+    judul_buku, 
+    penulisan_buku, 
+    penerbitan_buku, 
+    tahun_penerbitan, 
+    stok) 
+value
+(
+    1, 
+    'P101', 
+    'Umum populer non fiksi dan fiksi', 
+    'Hasanudin', 
+    'bukunesia',
+    2011,
+    10),
+(2, 'P102', 'Kesehjateraan Sosial', 'Isbandi Rukminto Adi'),
+(3, 'P103', 'Dasar Dasar Uroginekologi', 'Pribakti B'),
+(4, 'P104', 'Cedera Kepala', ),
+(5, 'P105', 'Akuntansi Pengantar 1'),
+(6, 'P106', 'Kolaborasi PHP 5 dan Mysql'),
+(7, 'P107', 'Kontroversi Hakim Perempuan Pada Peradilan Islam');
