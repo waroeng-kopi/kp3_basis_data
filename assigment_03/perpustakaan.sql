@@ -45,8 +45,21 @@ CREATE TABLE Peminjaman (
 
 CREATE TABLE Pengembalian (
     id_pengembalian int NOT NULL,
-    denda ,
-    fk_id_buku,
-    fk_id_anggota,
-    fk_id_petugas
+    denda VARCHAR(255),
+    fk_id_buku int,
+    fk_id_anggota int,
+    fk_id_petugas int,
+    PRIMARY KEY (id_pengembalian),
+    FOREIGN KEY (fk_id_buku) REFERENCES Buku(id_buku),
+    FOREIGN KEY (fk_id_anggota) REFERENCES Anggota(id_anggota),
+    FOREIGN KEY (fk_id_petugas) REFERENCES Petugas(id_petugas)
+);
+
+CREATE TABLE Rak (
+    id_rak int NOT NULL,
+    nama_rak VARCHAR(255),
+    lokasi_rak VARCHAR(255),
+    fk_id_buku int,
+    PRIMARY KEY (id_rak),
+    FOREIGN KEY (fk_id_buku) REFERENCES Buku(id_buku)
 );
