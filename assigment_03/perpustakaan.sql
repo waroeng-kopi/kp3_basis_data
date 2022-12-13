@@ -15,7 +15,7 @@ CREATE TABLE Anggota (
 CREATE TABLE Petugas (
     id_petugas int NOT NULL,
     nama_petugas VARCHAR(255),
-    jabatan_petugas(255),
+    jabatan_petugas VARCHAR(255),
     no_telp_petugas int(20),
     alamat_petugas VARCHAR(255),
     PRIMARY KEY (id_petugas)
@@ -65,6 +65,19 @@ CREATE TABLE Rak (
     PRIMARY KEY (id_rak),
     FOREIGN KEY (fk_id_buku) REFERENCES Buku(id_buku)
 );  
+
+-- Last Import in SQL
+
+INSERT INTO Anggota VALUES (
+    1,
+    'P101',
+    'Handoko',
+    'Ternak',
+    0854246466646,
+    'Ketintang timur'
+),
+(
+    2,
     'P102', 
     'Andika', 
     'Teknologi', 
