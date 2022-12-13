@@ -1,6 +1,6 @@
 -- Initializing
 
-CREATE DATABASE PERPUSTAKAAN;
+CREATE DATABASE perpustakaan;
 
 CREATE TABLE Anggota (
     id_anggota int NOT NULL,
@@ -64,28 +64,7 @@ CREATE TABLE Rak (
     fk_id_buku int,
     PRIMARY KEY (id_rak),
     FOREIGN KEY (fk_id_buku) REFERENCES Buku(id_buku)
-);
-
--- Inserting value
-
-INSERT INTO Anggota (
-    id_anggota, 
-    kode_anggota, 
-    nama_anggota, 
-    jurusan_anggota, 
-    no_telp_anggota, 
-    alamat_anggota) 
-value 
-(
-    1, 
-    'P101', 
-    'Handoko', 
-    'Ternak', 
-    0854246466646, 
-    'Ketintang timur'
-),
-(
-    2, 
+);  
     'P102', 
     'Andika', 
     'Teknologi', 
@@ -113,30 +92,227 @@ value
     'P105', 
     'Permatasari Jenaka', 
     'Teknologi', 
-    0815415956, 
+    0815415956,   
     'Kuburan Rangkah'
 );
 
-INSERT INTO Buku (
-    id_buku, 
-    kode_buku, 
-    judul_buku, 
-    penulisan_buku, 
-    penerbitan_buku, 
-    tahun_penerbitan, 
-    stok) 
-value
+INSERT INTO Petugas VALUES (
+    1,
+    'Handoko',
+    'Security',
+    0892812176,
+    'Kembang Kuning Ujung'
+),
 (
+    2,
+    'Sucipto',
+    'Pengurus',
+    08854196664,  
+    'Prapatan Gedangan'
+),
+(
+    3,
+    'Viina',
+    'Kasir',
+    08516484163,
+    'JL. Kenjeran Cedekkan'
+),
+(
+    4,
+    'Kurtino',
+    'Pengawas',
+    081854641347,
+    'JI. Pahlawan 10'
+),
+(
+    5,
+    'NunoNinu',
+    'Security',
+    08164354844,
+    'Tambak Sari 155'
+);
+
+INSERT INTO Buku VALUES (
     1, 
     'P101', 
     'Umum populer non fiksi dan fiksi', 
     'Hasanudin', 
     'bukunesia',
     2011,
-    10),
-(2, 'P102', 'Kesehjateraan Sosial', 'Isbandi Rukminto Adi'),
-(3, 'P103', 'Dasar Dasar Uroginekologi', 'Pribakti B'),
-(4, 'P104', 'Cedera Kepala', ),
-(5, 'P105', 'Akuntansi Pengantar 1'),
-(6, 'P106', 'Kolaborasi PHP 5 dan Mysql'),
-(7, 'P107', 'Kontroversi Hakim Perempuan Pada Peradilan Islam');
+    10
+),
+(
+    2, 
+    'P102', 
+    'Kesehjateraan Sosial', 
+    'Isbandi Rukminto Adi',
+    'Rajagrafindo Persada',
+    2015,
+    10
+),  
+(
+    4, 
+    'P104', 
+    'Cedera Kepala', 
+    'M. Z. Arifin',
+    'Sagung Seto',
+    2013,
+    10
+),
+(
+    5, 
+    'P105', 
+    'Akuntansi Pengantar 1',
+    'Supardi',
+    'Gava Media',
+    2009,
+    5
+),
+(
+    6, 
+    'P106', 
+    'Kolaborasi PHP 5 dan Mysql',
+    'Eko Priyo Utomo',
+    'Andi Offset',
+    2014,  
+    8
+),
+(
+    7, 
+    'P107', 
+    'Kontroversi Hakim Perempuan Pada Peradilan Islam',
+    'Djamizah Muqoddas',
+    'LKiS',
+    2011,
+    4
+);
+
+
+INSERT INTO Peminjaman VALUES (
+    1,
+    '2020-08-10',
+    '2020-08-14',
+    1,
+    1,
+    1
+),
+(
+    2,
+    '2020-05-05',
+    '2020-05-11',
+    2,
+    2,
+    2
+),
+(
+    3,
+    '2020-06-10',
+    '2020-06-05',
+    3,
+    3,
+    1
+),
+(
+    4,
+    '2020-07-05',
+    '2020-07-08',
+    4,
+    4,
+    4
+),
+(
+    5,
+    '2020-06-15',
+    '2020-06-18',
+    5,
+    5,
+    3
+),
+(
+    6,
+    '2021-10-01',
+    '2021-10-10',
+    7,
+    5,
+    4
+),
+(
+    7,
+    '2021-09-15',
+    '2021-09-23',
+    6,
+    3,
+    1
+);
+
+INSERT INTO Pengembalian VALUES (
+    1,
+    '5/Hari 50.000',
+    1,
+    1,
+    1
+),
+(
+    2,
+    '5/Hari 50.000',
+    2,
+    2,
+    2
+),
+(
+    3,
+    '5/Hari 50.000',
+    3,
+    3,
+    1
+),
+(
+    4,
+    '3/Hari 30.000',
+    4,
+    4,
+    4
+),
+(
+    5,
+    '3/Hari 30.000',
+    5,
+    5,
+    3
+),
+(
+    6,
+    '8/Hari 100.000',
+    7,
+    5,
+    4
+),
+(
+    7,
+    '8/Hari 100.000',
+    6,
+    3,
+    1
+);
+
+INSERT INTO Rak VALUES (
+    1, 'Umum', 'Tengah', 1
+),
+(
+    2, 'Umum', 'Tengah', 2
+),
+(
+    3, 'Umum', 'Tengah', 3
+),
+(
+    4, 'Sejarah', 'Utara', 4
+),
+(
+    5, 'Sejarah', 'Utara', 5
+),
+(
+    6, 'Website', 'Barat', 6
+),
+(
+    7, 'Sejarah', 'Utara', 7
+),
